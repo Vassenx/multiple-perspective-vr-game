@@ -59,6 +59,7 @@ public class ColorCheck : MonoBehaviour
                     if(hasRigidbody && detectCol)
                     {
                         this.GetComponent<Rigidbody>().detectCollisions = false;
+                        detectCol = false;
                     }
                 }
                 else
@@ -67,6 +68,7 @@ public class ColorCheck : MonoBehaviour
                     if (hasRigidbody && !detectCol)
                     {
                         this.GetComponent<Rigidbody>().detectCollisions = true;
+                        detectCol = true;
                     }
                 }
                 break;
@@ -77,6 +79,7 @@ public class ColorCheck : MonoBehaviour
                     if (hasRigidbody && detectCol)
                     {
                         this.GetComponent<Rigidbody>().detectCollisions = false;
+                        detectCol = false;
                     }
                 }
                 else
@@ -85,6 +88,7 @@ public class ColorCheck : MonoBehaviour
                     if (hasRigidbody && !detectCol)
                     {
                         this.GetComponent<Rigidbody>().detectCollisions = true;
+                        detectCol = true;
                     }
                 }
                 break;
@@ -95,6 +99,7 @@ public class ColorCheck : MonoBehaviour
                     if (hasRigidbody && detectCol)
                     {
                         this.GetComponent<Rigidbody>().detectCollisions = false;
+                        detectCol = false;
                     }
                 }
                 else
@@ -103,6 +108,7 @@ public class ColorCheck : MonoBehaviour
                     if (hasRigidbody && !detectCol)
                     {
                         this.GetComponent<Rigidbody>().detectCollisions = true;
+                        detectCol = true;
                     }
                 }
                 break;

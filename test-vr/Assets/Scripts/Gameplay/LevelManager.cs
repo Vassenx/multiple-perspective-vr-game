@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
-    public int sceneBuildIndex = 0;
+    public int sceneBuildIndex = 1;
 
     //Touch door = change level
     private void OnTriggerEnter(Collider other)
     {
-        if(other == Camera.main.GetComponent<Collider>())
+        if(other.gameObject == Camera.main.gameObject)
         {
             SceneManager.LoadScene(sceneBuildIndex);
         }
@@ -18,15 +18,15 @@ public class LevelManager : MonoBehaviour {
 
     void Restart()
     {
-        if(Input.GetButtonDown("R"))
+        if(Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
 
     void RageQuit()
     {
-        if (Input.GetButtonDown("Escape"))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.CancelQuit();
         }

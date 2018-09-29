@@ -86,7 +86,7 @@ half4 frag( v2f i ) : COLOR
     // calculate perturbed coordinates
     half2 bump = UnpackNormal(tex2D( _BumpMap, i.uvbump )).rg; // we could optimize this by just reading the x & y without reconstructing the Z
     float2 offset = bump * _BumpAmt * _GrabTexture_TexelSize.xy;
-    i.uvgrab.xy = offset * i.uvgrab.z + i.uvgrab.xy;
+    i.uvgrab.xy = offset * i.uvgrab.w + i.uvgrab.xy;
     
     half4 col = tex2Dproj( _GrabTexture, UNITY_PROJ_COORD(i.uvgrab));
     col.xyz *= half3(_redFilter, _greenFilter, _blueFilter);

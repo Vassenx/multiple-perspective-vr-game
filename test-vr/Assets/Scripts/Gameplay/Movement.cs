@@ -7,10 +7,10 @@ public class Movement : MonoBehaviour
 {
     public float speed = 5;
     public float jumpSpeed = 10000;
-
+    Rigidbody m_rb;
     // Use this for initialization
 	void Start () {
-
+        m_rb = this.GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
@@ -28,15 +28,16 @@ public class Movement : MonoBehaviour
         right *= Input.GetAxis(InputMappingAxisUtility.CONTROLLER_RIGHT_STICK_HORIZONTAL);
         forward *= Input.GetAxis(InputMappingAxisUtility.CONTROLLER_RIGHT_STICK_VERTICAL);
        
-        right *= Time.deltaTime * speed;
+        //right *= Time.deltaTime * speed;
     
-        forward *= Time.deltaTime * speed;
-        
-        this.transform.Translate(forward + right);
+        //forward *= Time.deltaTime * speed;
 
-        if (Input.GetButtonDown(InputMappingAxisUtility.CONTROLLER_LEFT_BUMPER_OR_GRIP))
+        m_rb.velocity = forward * speed + right * speed + new Vector3(0, m_rb.velocity.y, 0);
+        //this.transform.Translate(forward + right);
+
+        if (Input.GetButtonDown(InputMappingAxisUtility.CONTROLLER_LEFT_BUMPER_OR_GRIP) && Mathf.Abs(m_rb.velocity.y) < 0.01)
         {
-            this.GetComponent<Rigidbody>().AddForce(Camera.main.transform.up * jumpSpeed, ForceMode.Impulse);
+            m_rb.AddForce(Camera.main.transform.up * jumpSpeed, ForceMode.Impulse);
         }
 	}
 
