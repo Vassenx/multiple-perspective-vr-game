@@ -6,13 +6,21 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour {
 
     public int sceneBuildIndex = 1;
+    private GameObject player;
+
+    private void Start()
+    {
+        player = Camera.main.gameObject;
+    }
 
     //Touch door = change level
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject == Camera.main.gameObject)
+        //have to have all the keys to get through door
+        if(other.gameObject == player && KeyCollector.keyCount == KeyCollector.keysInScene)
         {
             SceneManager.LoadScene(sceneBuildIndex);
+            KeyCollector.keyCount = 0;
         }
     }
 

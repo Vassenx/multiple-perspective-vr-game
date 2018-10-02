@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - CameraParent
+  - Key
+  - Floor
+  - SpawnSpot
+  - Glasses
   layers:
   - Default
   - TransparentFX
@@ -17,7 +21,7 @@ TagManager:
   - Camera
   - Glasses
   - CameraParent
-  - 
+  - test
   - 
   - 
   - 

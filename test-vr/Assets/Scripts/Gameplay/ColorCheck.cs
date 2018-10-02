@@ -2,26 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ColorMaterial
+public enum EColor
 {
-    Magenta, Cyan, Yellow, White
+    Magenta = 5, Cyan = 3, Yellow  = 6 , White = 7 , Red = 4, Green = 2, Blue = 1, Black = 0
 }
 
 public enum ColorFilter
 {
     Red, Green, Blue
 }
+
 public static class ColorHelpers
 {
-    public static Color FromColorEnum(ColorMaterial c)
+    public static Color FromColorEnum(EColor c)
     {
         switch (c)
         {
-            case ColorMaterial.Cyan:
+            case EColor.Cyan:
                 return new Color(0, 1.0f, 1.0f);
-            case ColorMaterial.Magenta:
+            case EColor.Magenta:
                 return new Color(1.0f, 0, 1.0f);
-            case ColorMaterial.Yellow:
+            case EColor.Yellow:
                 return new Color(1.0f, 1.0f, 0);
             default:
                 return new Color();
@@ -30,8 +31,7 @@ public static class ColorHelpers
 }
 public class ColorCheck : MonoBehaviour
 {
-    public enum Color { Magenta, Cyan, Yellow };
-    public Color color_choice;
+    public EColor color_choice;
     private RGBFilterPostFX filter;
     private bool hasRigidbody;
     private bool detectCol;
@@ -49,72 +49,24 @@ public class ColorCheck : MonoBehaviour
             hasRigidbody = false;
         }
         else hasRigidbody = true;
-
-        switch (color_choice)
+        
+        if(((uint)color_choice & ~(uint)filter.currentFilter) == 0)
         {
-            case Color.Magenta:
-                if (filter.BlueFilter == 0.0f && filter.RedFilter == 0.0f)
-                {
-                    this.GetComponent<Renderer>().enabled = false;
-                    if(hasRigidbody && detectCol)
-                    {
-                        this.GetComponent<Rigidbody>().detectCollisions = false;
-                        detectCol = false;
-                    }
-                }
-                else
-                {
-                    this.GetComponent<Renderer>().enabled = true;
-                    if (hasRigidbody && !detectCol)
-                    {
-                        this.GetComponent<Rigidbody>().detectCollisions = true;
-                        detectCol = true;
-                    }
-                }
-                break;
-            case Color.Cyan:
-                if (filter.BlueFilter == 0.0f && filter.GreenFilter == 0.0f)
-                {
-                    this.GetComponent<Renderer>().enabled = false;
-                    if (hasRigidbody && detectCol)
-                    {
-                        this.GetComponent<Rigidbody>().detectCollisions = false;
-                        detectCol = false;
-                    }
-                }
-                else
-                {
-                    this.GetComponent<Renderer>().enabled = true;
-                    if (hasRigidbody && !detectCol)
-                    {
-                        this.GetComponent<Rigidbody>().detectCollisions = true;
-                        detectCol = true;
-                    }
-                }
-                break;
-            case Color.Yellow:
-                if (filter.GreenFilter == 0.0f && filter.RedFilter == 0.0f)
-                {
-                    this.GetComponent<Renderer>().enabled = false;
-                    if (hasRigidbody && detectCol)
-                    {
-                        this.GetComponent<Rigidbody>().detectCollisions = false;
-                        detectCol = false;
-                    }
-                }
-                else
-                {
-                    this.GetComponent<Renderer>().enabled = true;
-                    if (hasRigidbody && !detectCol)
-                    {
-                        this.GetComponent<Rigidbody>().detectCollisions = true;
-                        detectCol = true;
-                    }
-                }
-                break;
-            default:
-                Debug.Log("No Color for game object:" + this.gameObject);
-                break;
+            this.GetComponent<Renderer>().enabled = false;
+            if (hasRigidbody && detectCol)
+            {
+                this.GetComponent<Rigidbody>().detectCollisions = false;
+                detectCol = false;
+            }
+        }
+        else
+        {
+            this.GetComponent<Renderer>().enabled = true;
+            if (hasRigidbody && !detectCol)
+            {
+                this.GetComponent<Rigidbody>().detectCollisions = true;
+                detectCol = true;
+            }
         }
     }
 }

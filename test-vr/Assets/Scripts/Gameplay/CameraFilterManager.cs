@@ -18,7 +18,7 @@ public class CameraFilterManager : Singleton<CameraFilterManager> {
         m_postFX = this.GetComponent<RGBFilterPostFX>();
     }
     
-    public bool FilterRemovesColor(ColorMaterial color)
+    public bool FilterRemovesColor(EColor color)
     {
         Color match = ColorHelpers.FromColorEnum(color);
         return (match.r * (m_redFilterActive ? 0 : 1) + match.g * (m_greenFilterActive ? 0 : 1) + match.b * (m_blueFilterActive ? 0 : 1)) <= 0;
