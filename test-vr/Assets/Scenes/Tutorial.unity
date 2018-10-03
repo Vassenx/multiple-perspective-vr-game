@@ -733,6 +733,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneBuildIndex: 1
+  keyCount: 0
 --- !u!1 &651905474
 GameObject:
   m_ObjectHideFlags: 0
@@ -1673,7 +1674,7 @@ GameObject:
   - component: {fileID: 1444831702}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

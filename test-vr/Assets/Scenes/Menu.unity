@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 293279025}
   - component: {fileID: 293279027}
   - component: {fileID: 293279026}
+  - component: {fileID: 293279028}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -189,6 +190,22 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 293279024}
+--- !u!114 &293279028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 293279024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e77a98cf320fe9340a55eecfe4567ca4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonState: 4
+  buttonPressFilter: 1
+  requireGaze: 1
+  MainCollider: {fileID: 0}
+  MainRenderer: {fileID: 0}
 --- !u!1 &647769656
 GameObject:
   m_ObjectHideFlags: 0
