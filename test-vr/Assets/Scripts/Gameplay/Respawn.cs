@@ -1,20 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Respawn : MonoBehaviour {
 
-    private Vector3 spawnSpot; 
-
-    private void Start()
-    {
-        spawnSpot = GameObject.FindGameObjectWithTag("SpawnSpot").GetComponent<Transform>().position;
-    }
     private void OnCollisionEnter(Collision collision)
     {
+        //restart level, died
         if(collision.gameObject.tag == "Floor")
         {
-            this.GetComponent<Transform>().position = spawnSpot;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
