@@ -2873,6 +2873,7 @@ GameObject:
   - component: {fileID: 1075381438}
   - component: {fileID: 1075381439}
   - component: {fileID: 1075381440}
+  - component: {fileID: 1075381436}
   m_Layer: 8
   m_Name: MixedRealityCameraParent
   m_TagString: CameraParent
@@ -2969,6 +2970,18 @@ MonoBehaviour:
     type: 2}
   BlueGlasses: {fileID: 114130780035838950, guid: 7702bfd8da6dfbd428cbd68679b9b26a,
     type: 2}
+--- !u!114 &1075381436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1075381430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee8762465f96e36438a0d4027e9047f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wayPoint: {x: 0, y: 0, z: 0}
 --- !u!54 &1075381437
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3019,6 +3032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ae026c1f7189b4987586d44ff80e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wayPoint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1120674182
 Prefab:
   m_ObjectHideFlags: 0
@@ -3734,6 +3748,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300032, guid: c5d3b369312efe14f9bae749fb59c7b5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1fc68c219ccb3fe47bb78ab63e61ffb2, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5d3b369312efe14f9bae749fb59c7b5, type: 3}
   m_IsPrefabParent: 0
@@ -4076,7 +4094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99611423c97e1cc43a761cdcd86189df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color_choice: 5
+  color_choice: 1
 --- !u!114 &1299529964
 MonoBehaviour:
   m_ObjectHideFlags: 0

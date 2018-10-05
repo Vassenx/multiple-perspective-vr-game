@@ -5,7 +5,7 @@ using HoloToolkit.Unity;
 
 public class CheckPointManager : Singleton<CheckPointManager> {
 
-    private Transform m_lastCheckpoint;
+    public Transform m_lastCheckpoint;
 
     void Start()
     {
@@ -20,6 +20,6 @@ public class CheckPointManager : Singleton<CheckPointManager> {
 
     public Transform GetLastCheckPoint()
     {
-        return m_lastCheckpoint.transform;
+        return m_lastCheckpoint ==null ? this.transform : m_lastCheckpoint.transform;
     }
 }

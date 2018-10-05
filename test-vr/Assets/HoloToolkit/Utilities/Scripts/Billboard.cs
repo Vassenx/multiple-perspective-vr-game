@@ -36,7 +36,7 @@ namespace HoloToolkit.Unity
             get { return pivotAxis; }
             set { pivotAxis = value; }
         }
-
+        
         /// <summary>
         /// The target we will orient to. If no target is specified, the main camera will be used.
         /// </summary>

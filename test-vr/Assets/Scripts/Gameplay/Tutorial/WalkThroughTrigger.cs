@@ -30,12 +30,11 @@ public class WalkThroughTrigger : MonoBehaviour {
                 displayedMessage = true;
                 TutorialSection.Instance.DisplayText(messages.message, messages.duration, messages.priority);
             }
-            else
-            {
-                BaseEventData eventData = new BaseEventData(EventSystem.current);
-                eventData.selectedObject = other.gameObject;
-                customCallBack.Invoke(eventData);
-            }
+
+            BaseEventData eventData = new BaseEventData(EventSystem.current);
+            eventData.selectedObject = other.gameObject;
+            customCallBack.Invoke(eventData);
+            
         }
     }
 
@@ -48,6 +47,7 @@ public class WalkThroughTrigger : MonoBehaviour {
     public void ResetPlayerAndFilter(BaseEventData d)
     {
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<RGBFilterPostFX>().ClearFilter();
+        Debug.Log(CheckPointManager.Instance.GetLastCheckPoint().position);
         d.selectedObject.transform.position = CheckPointManager.Instance.GetLastCheckPoint().position;
     }
 

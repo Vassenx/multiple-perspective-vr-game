@@ -21,7 +21,8 @@ struct StringDisplayRequest
 public class TutorialSection : Singleton<TutorialSection> {
 
  
-    public Text textViewer;
+   // public Text textViewer;
+    public TextMesh textViewer;
 
     Queue<StringDisplayRequest> m_lowPrioity = new Queue<StringDisplayRequest>();
     Queue<StringDisplayRequest> m_mediumPriotiy = new Queue<StringDisplayRequest>();
@@ -77,6 +78,7 @@ public class TutorialSection : Singleton<TutorialSection> {
             textViewer.text = topRequest.m_message;
             yield return new WaitForSeconds(topRequest.m_duration);
             textViewer.text = "";
+
         }
     }
     
