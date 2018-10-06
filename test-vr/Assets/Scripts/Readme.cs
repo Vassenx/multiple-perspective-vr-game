@@ -32,4 +32,10 @@ public class Readme : MonoBehaviour {
         throw new NotImplementedException();
     }*/
 
+    //TEXT:
+
+    //To display text so that it is always in front of the camera use the toolkit's "Billboard" script
+    //To display the text in a more spherical view use the "Sphere Based Tagalong" script
+    //Use a text mesh instead of a text for the text and make sure the font is large
+
 }

@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour {
 
     public int sceneBuildIndex = 1;
-    public int keyCount = 0;
     private GameObject player;
 
     private void Start()
@@ -18,18 +17,10 @@ public class LevelManager : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         //have to have all the keys to get through door
-        if(other.gameObject == player && keyCount == KeyCollector.keysInScene)
+        if(other.gameObject == player && KeyCollector.Instance.keyCount == KeyCollector.Instance.keysInScene)
         {
             SceneManager.LoadScene(sceneBuildIndex);
-            KeyCollector.keyCount = 0;
-        }
-    }
-
-    void Restart()
-    {
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene(1);
+            KeyCollector.Instance.keyCount = 0;
         }
     }
 

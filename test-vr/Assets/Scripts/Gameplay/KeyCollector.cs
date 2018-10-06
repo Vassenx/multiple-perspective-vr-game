@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using HoloToolkit.Unity;
 
-public class KeyCollector : MonoBehaviour {
-    public static int keyCount;
-    public static int keysInScene;
+public class KeyCollector : Singleton<KeyCollector>{
 
+    public int keysInScene;
+    [HideInInspector]
+    public int keyCount;
+   
     private void Start()
     {
         keyCount = 0;
